@@ -10,7 +10,7 @@
 <header>
   <div class="header-content">
 
-    <a href="index.html" class="logo">J Lim</a>
+    <a href="https://gelolim.me/" class="logo">J Lim</a>
 
     <input type="checkbox" id="hamburger">
     <label for="hamburger"><span></span></label>
@@ -24,31 +24,29 @@
   </div>
 </header>
 <body>
-<br>
-<header>
-  <div class="header-content">
-
-    <a href="https://gelolim.me/" class="logo">J Lim</a>
-
-    <input type="checkbox" id="hamburger">
-    <label for="hamburger"><span></span></label>'
-
-    <nav>
-      <ul class="menus">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About me</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<body>
 <style>
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.zoom {
+  transition: transform .2s;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+}
+
+body {
+  font-family: sans-serif;
 }
 
 header {
@@ -67,7 +65,7 @@ header {
 .logo {
   text-decoration: none;
   font-size: 30px;
-  color: black;
+  color: white;
   margin-right: 20px;
 }
 
@@ -75,7 +73,7 @@ label {
   padding: 23px 20px;
   position: absolute;
   cursor: pointer;
-  right: 20px;
+  right: 0;
   top: 0;
 }
 
@@ -89,7 +87,7 @@ label span {
   width: 20px;
   height: 3px;
   display: block;
-  background: black;
+  background: #4f3e3e;
   position: relative;
 }
 
@@ -107,11 +105,8 @@ label span::before{
 }
 
 label span::after {
-  bottom: 8px; 
+  bottom: 8px;
 }
-
-
-/*Shadow ng menu*/
 
 label::before {
   position: absolute;
@@ -122,10 +117,8 @@ label::before {
   right: 0;
 }
 
-/*Animation ng menu*/
-
-input[type="checkbox"]:hover + label::before {
-  box-shadow: 0 0 15px black; 
+input[type="checkbox"]:focus + label::before {
+  box-shadow: 0 0 20px black;
 }
 
 ul {
@@ -137,6 +130,13 @@ ul li {
    font-size: 18px;
 }
 
+ul li button {
+    font-size: inherit;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 100%;
+}
 
 ul li a {
    display: block;
@@ -151,11 +151,13 @@ ul li a, ul li button {
 
 .menus {
   position: absolute;
-  top: 56px;
+  top: 3.2rem;
+  left: 0;
   right: 0;
-  width: 220px;
-  height: 140px;
-  border: black;
+}
+
+.dropdown {
+  padding: 2px 1.5rem;
 }
 
 .menus {
@@ -170,11 +172,16 @@ input[type="checkbox"]:checked ~ nav > ul {
   visibility: visible;
 }
 
+.dropdown {
+  /* ... */
+  height: 0;
+  overflow: hidden;
+}
+
+
 body {
   background-image: url('https://cdn.discordapp.com/attachments/839887184759750726/1075354176005099550/Background_image.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+  background-repeat: repeat;
 }
 .img {
   display: block;
