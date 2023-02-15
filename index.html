@@ -1,24 +1,91 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-
-<title>
-  J Lim's Space
-</title>
 <html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+.drapdown-content {
+  display: none;
+  position: block;
+  background-color: #f1f1f1;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.drapdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.shaw {display: block;}
+
+.container {
+  background-color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35px;
+  position: relative;
+  left: 300px;
+  border: 3px solid #73AD21;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+  transition: 0.7s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+
+
+</style>
+</head>
+<body>
+
+<p>Click on the Menu Icon to transform it to "X":</p>
+<div class="container" onclick="myButton(this)">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+</div>
+
+<div id="myDropdown" class="drapdown-content">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</div>
+
+
 <header>
   <div class="header-content">
 
-    <a href="index.html" class="logo">J Lim</a>
+    <a href="https://gelolim.me/" class="logo">J Lim</a>
 
     <input type="checkbox" id="hamburger">
-    <label for="hamburger"><span></span></label>
+    <label for="hamburger"><span></span></label>'
 
     <nav>
       <ul class="menus">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About me</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -30,25 +97,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-.zoom {
-  transition: transform .2s;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
-}
-
-.zoom:hover {
-  -ms-transform: scale(1.5); /* IE 9 */
-  -webkit-transform: scale(1.5); /* Safari 3-8 */
-  transform: scale(1.5); 
-}
-
-body {
-  font-family: sans-serif;
-  background-image: url('https://cdn.discordapp.com/attachments/839887184759750726/1075354176005099550/Background_image.jpg');
-  background-repeat: repeat;
 }
 
 header {
@@ -67,7 +115,7 @@ header {
 .logo {
   text-decoration: none;
   font-size: 30px;
-  color: white;
+  color: black;
   margin-right: 20px;
 }
 
@@ -75,7 +123,7 @@ label {
   padding: 23px 20px;
   position: absolute;
   cursor: pointer;
-  right: 0;
+  right: 20px;
   top: 0;
 }
 
@@ -89,7 +137,7 @@ label span {
   width: 20px;
   height: 3px;
   display: block;
-  background: #4f3e3e;
+  background: black;
   position: relative;
 }
 
@@ -107,8 +155,11 @@ label span::before{
 }
 
 label span::after {
-  bottom: 8px;
+  bottom: 8px; 
 }
+
+
+/*Shadow ng menu*/
 
 label::before {
   position: absolute;
@@ -119,8 +170,10 @@ label::before {
   right: 0;
 }
 
-input[type="checkbox"]:focus + label::before {
-  box-shadow: 0 0 20px black;
+/*Animation ng menu*/
+
+input[type="checkbox"]:hover + label::before {
+  box-shadow: 0 0 15px black; 
 }
 
 ul {
@@ -132,13 +185,6 @@ ul li {
    font-size: 18px;
 }
 
-ul li button {
-    font-size: inherit;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    width: 100%;
-}
 
 ul li a {
    display: block;
@@ -153,13 +199,11 @@ ul li a, ul li button {
 
 .menus {
   position: absolute;
-  top: 3.2rem;
-  left: 0;
+  top: 56px;
   right: 0;
-}
-
-.dropdown {
-  padding: 2px 1.5rem;
+  width: 220px;
+  height: 140px;
+  border: black;
 }
 
 .menus {
@@ -174,122 +218,6 @@ input[type="checkbox"]:checked ~ nav > ul {
   visibility: visible;
 }
 
-.dropdown {
-  /* ... */
-  height: 0;
-  overflow: hidden;
-}
-
-
-
-.img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 200px;
-  height: auto;
-  border-radius: 50%;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.row {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-}
-
-/* Create three equal columns that sits next to each other */
-.column {
-  float: center;
-  width: 15%;
-  padding: 1px;
-}
-
-@media screen and (max-width: 650px) {
-  .column {
-    width: 100%;
-    display: block;
-  }
-}
-
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.gitna {
-  align-items:center;
-  justify-content:center;
-  margin:auto;
-}
-
-.container {
-  padding: 0 16px;
-}
-
-.container::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-
-</style>
-
-<br>
-<br>
-<br>
-<br>
-
-
-<img class='zoom img' src="https://cdn.discordapp.com/attachments/839887184759750726/1075354176357412935/Profile.jpg" alt="Ghelo.Dump" width="auto" height="200">
-<br>
-<br>
-<div class="row">
-  <a href="https://facebook.com/" target="_self">
-  <div class="column zoom">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28square%29.png/800px-Facebook_logo_%28square%29.png" alt="Facebook" style="width:70%"> </a>
-  </div>
-  <div class="column zoom">
-    <a href="https://www.youtube.com/" target="_self">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/1024px-YouTube_full-color_icon_%282017%29.svg.png" alt="Youtube" style="width:70%"> </a>
-  </div>
-  <div class="column zoom">
-    <a href="https://discord.com/channels/me" target="_self">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Discord" style="width:70%"> </a>
-  </div>
-</div>
-
-
-<script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
 
 </body>
 </html>
